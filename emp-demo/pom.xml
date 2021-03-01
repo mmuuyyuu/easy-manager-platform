@@ -17,12 +17,12 @@
             <version>1.0.0</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
+   <!--     <dependency>
             <groupId>com.easy</groupId>
             <artifactId>emp-processor</artifactId>
             <version>1.0.0</version>
             <scope>test</scope>
-        </dependency>
+        </dependency>-->
     </dependencies>
 
 

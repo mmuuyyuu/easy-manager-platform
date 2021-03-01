@@ -20,7 +20,7 @@
         <module>emp-demo</module>
         <module>emp-security</module>
         <module>emp-portal</module>
-    </modules>
+     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -34,8 +34,8 @@
         <!--跳过测试-->
         <skipTests>true</skipTests>
     </properties>
-
     <dependencies>
+
         <!---->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -137,6 +137,8 @@
         </plugins>
 
     </build>
+
+
 
 
 </project>
