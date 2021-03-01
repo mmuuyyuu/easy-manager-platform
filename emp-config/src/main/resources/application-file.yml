@@ -1,0 +1,8 @@
+# 上传默认配置 ，文件大小单位MB
+files:
+  params:
+    maxFileSize: 8
+    maxRequestSize: 16
+    # spring boot 临时文件 ，文件也是被设置成存在在这个路径， 为了避免发错，请一定要写绝对路径
+    location: D:\workspace\easy-manager-platform\emp-portal\files
+    dest: file

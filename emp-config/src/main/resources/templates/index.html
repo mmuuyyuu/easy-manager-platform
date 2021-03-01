@@ -1,0 +1,433 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8" />
+</head>
+
+<body>
+	<script type="text/javascript">
+		// {"currPage":1,"data":{},"pageSize":10}
+
+		function task() {
+
+		//	var data = "{\"data\":{\"pageSize\":10,\"currPage\":1,\"type\":\"其他\",\"status\":1}}";
+			var data = "{\"data\":{\"pageSize\":10,\"currPage\":1}}";
+
+			console.log(JSON.parse(data));
+			fetch("./taskCommon/task", {
+				method : "POST",
+				body : data,
+				headers : {
+					"Content-Type" : "application/json"
+				},
+				credentials : "same-origin"
+			}).then(function(response) {
+				console.log(response);
+				response.status //=> number 100–599
+				response.statusText //=> String
+				response.headers //=> Headers
+				response.url //=> String
+				console.log(response.text());
+
+			}, function(error) {
+				console.log(error);
+				console.log(error.message);
+
+				error.message //=> String
+			})
+		}
+
+		//
+
+		function addSugg() {
+
+			var data = "{\"type\":1,\"tid\":32,\"content\":\"content\"}";
+
+			console.log(JSON.parse(data));
+			fetch("./sug/add", {
+				method : "POST",
+				body : data,
+				headers : {
+					"Content-Type" : "application/json"
+				},
+				credentials : "same-origin"
+			}).then(function(response) {
+				console.log(response);
+				response.status //=> number 100–599
+				response.statusText //=> String
+				response.headers //=> Headers
+				response.url //=> String
+				console.log(response.text());
+
+			}, function(error) {
+				console.log(error);
+				console.log(error.message);
+
+				error.message //=> String
+			})
+		}
+		///
+
+		function modifySugg() {
+			var data = "{\"status\":0,\"id\":1,\"content\":\"content2\"}";
+
+			console.log(JSON.parse(data));
+			fetch("./sug/modify", {
+				method : "POST",
+				body : data,
+				headers : {
+					"Content-Type" : "application/json"
+				},
+				credentials : "same-origin"
+			}).then(function(response) {
+				console.log(response);
+				response.status //=> number 100–599
+				response.statusText //=> String
+				response.headers //=> Headers
+				response.url //=> String
+				console.log(response.text());
+
+			}, function(error) {
+				console.log(error);
+				console.log(error.message);
+
+				error.message //=> String
+			})
+
+		}
+		//
+		function selectSugg() {
+			var data = "{\"status\":0,\"id\":1,\"content\":\"content2\"}";
+
+			console.log(JSON.parse(data));
+			fetch("./sug/select/78", {
+				method : "POST",
+				body : data,
+				headers : {
+					"Content-Type" : "application/json"
+				},
+				credentials : "same-origin"
+			}).then(function(response) {
+				console.log(response);
+				response.status //=> number 100–599
+				response.statusText //=> String
+				response.headers //=> Headers
+				response.url //=> String
+				console.log(response.text());
+
+			}, function(error) {
+				console.log(error);
+				console.log(error.message);
+
+				error.message //=> String
+			})
+		}
+		//
+		function nextFlow() {
+			// 工单id
+			// 操作 ： 1 ：下一步 2：上一步
+			var data = "{\"oper\":1,\"id\":28}";
+			console.log(JSON.parse(data));
+
+			fetch("./taskCommon/flow", {
+				method : "POST",
+				body : data,
+				headers : {
+					"Content-Type" : "application/json"
+				},
+				credentials : "same-origin"
+			}).then(function(response) {
+				console.log(response);
+				response.status //=> number 100–599
+				response.statusText //=> String
+				response.headers //=> Headers
+				response.url //=> String
+				console.log(response.text());
+
+			}, function(error) {
+				console.log(error);
+				console.log(error.message);
+
+				error.message //=> String
+			})
+		}
+
+		//
+		function backFlow() {
+
+			// 工单id
+			// 操作 ： 1 ：下一步 2：上一步
+			var data = "{\"oper\":2,\"id\":28}";
+			console.log(JSON.parse(data));
+
+			fetch("./taskCommon/flow", {
+				method : "POST",
+				body : data,
+				headers : {
+					"Content-Type" : "application/json"
+				},
+				credentials : "same-origin"
+			}).then(function(response) {
+				console.log(response);
+				response.status //=> number 100–599
+				response.statusText //=> String
+				response.headers //=> Headers
+				response.url //=> String
+				console.log(response.text());
+
+			}, function(error) {
+				console.log(error);
+				console.log(error.message);
+
+				error.message //=> String
+			})
+		}
+
+		function detail() {
+
+			// 工单id
+			// 操作 ： 1 ：下一步 2：上一步
+			var data = "{\"data\":{\"id\":127}}";
+			console.log(JSON.parse(data));
+
+			fetch("./taskCommon/selectById", {
+				method : "POST",
+				body : data,
+				headers : {
+					"Content-Type" : "application/json"
+				},
+				credentials : "same-origin"
+			}).then(function(response) {
+				console.log(response);
+				response.status //=> number 100–599
+				response.statusText //=> String
+				response.headers //=> Headers
+				response.url //=> String
+				console.log(response.text());
+
+			}, function(error) {
+				console.log(error);
+				console.log(error.message);
+
+				error.message //=> String
+			})
+		}
+
+		function add() {
+			// saveStatus :1 保存
+		//	var data = "{\"data\":{\"saveStatus\":1,\"title\":10,\"content\":\"互动领导信箱出现404报错\",\"chnl\":\"测试栏目\",\"siteName\":\"测试站点\",\"postPhone\":\"1311111111\",\"type\":\"功能优化\"}}";
+			var data = "{\"data\":{\"postPhone\":\"18278993396\",\"taskFile\":[],\"siteName\":\"空白\",\"dept\":\"工单填报组\",\"title\":\"测试提交！\",\"type\":\"页面优化\",\"chnl\":\"ccc\",\"content\":\"<p>测试提交！</p>\",\"saveStatus\":\"1\",\"postTime\":\"\",\"postName\":\"wos4\",\"contact\":\"\",\"sitename\":\"空白\",\"id\":\"\",\"addrLink\":\"\",\"treeField\":{\"children\":\"children\",\"title\":\"name\",\"key\":\"id\"}}}";
+
+			console.log(JSON.parse(data));
+			fetch("./taskCommon/insertTask", {
+				method : "POST",
+				body : data,
+				headers : {
+					"Content-Type" : "application/json"
+				},
+				credentials : "same-origin"
+			}).then(function(response) {
+				console.log(response);
+				response.status //=> number 100–599
+				response.statusText //=> String
+				response.headers //=> Headers
+				response.url //=> String
+				console.log(response.text());
+
+			}, function(error) {
+				console.log(error);
+				console.log(error.message);
+
+				error.message //=> String
+			})
+		}
+		//
+		function update() {
+
+			var data = "{\"data\":{\"id\":35,\"siteName\":\"互动信箱有问题\",\"addrLink\":\"同意提交给运维处理\",\"content\":\"13212xx222211\",\"revUser\":\"大数据局\",\"handleStatus\":2}}";
+
+			console.log(JSON.parse(data));
+			fetch("./taskCommon/updateTask", {
+				method : "POST",
+				body : data,
+				headers : {
+					"Content-Type" : "application/json"
+				},
+				credentials : "same-origin"
+			}).then(function(response) {
+				console.log(response);
+				response.status //=> number 100–599
+				response.statusText //=> String
+				response.headers //=> Headers
+				response.url //=> String
+				console.log(response.text());
+
+			}, function(error) {
+				console.log(error);
+				console.log(error.message);
+
+				error.message //=> String
+			})
+		}
+		//gdfjList
+		function gdfjList() {
+
+		 	var data = "{\"data\":{\"id\":23,\"siteName\":\"互动信箱有问题\",\"addrLink\":\"同意提交给运维处理\",\"revPhone\":\"13212222211\",\"revUser\":\"大数据局\",\"handleStatus\":2}}";
+
+			console.log(JSON.parse(data));
+			fetch("./file/list/23", {
+				method : "POST",
+				body : data,
+				headers : {
+					"Content-Type" : "application/json"
+				},
+				credentials : "same-origin"
+			}).then(function(response) {
+				console.log(response);
+				response.status //=> number 100–599
+				response.statusText //=> String
+				response.headers //=> Headers
+				response.url //=> String
+				console.log(response.text());
+
+			}, function(error) {
+				console.log(error);
+				console.log(error.message);
+
+				error.message //=> String
+			})
+		}
+		//
+			function findHandleTask() {
+
+		//	var data = "{\"data\":{\"pageSize\":10,\"currPage\":1,\"type\":\"其他\",\"status\":1}}";
+			var data = "{\"data\":{\"id\":51,\"currPage\":1}}";
+
+			console.log(JSON.parse(data));
+			fetch("./taskCommon/findHandleTask", {
+				method : "POST",
+				body : data,
+				headers : {
+					"Content-Type" : "application/json"
+				},
+				credentials : "same-origin"
+			}).then(function(response) {
+				console.log(response);
+				response.status //=> number 100–599
+				response.statusText //=> String
+				response.headers //=> Headers
+				response.url //=> String
+				console.log(response.text());
+
+			}, function(error) {
+				console.log(error);
+				console.log(error.message);
+
+				error.message //=> String
+			})
+		}
+		/// 跟进
+		 function genjinflo() {
+
+		//	var data = "{\"data\":{\"pageSize\":10,\"currPage\":1,\"type\":\"其他\",\"status\":1}}";
+			var data = "{\"data\":{\"id\":127,\"opUser\":\"mumu\"}}";
+
+			console.log(JSON.parse(data));
+			fetch("./taskCommon/followup", {
+				method : "POST",
+				body : data,
+				headers : {
+					"Content-Type" : "application/json"
+				},
+				credentials : "same-origin"
+			}).then(function(response) {
+				console.log(response);
+				response.status //=> number 100–599
+				response.statusText //=> String
+				response.headers //=> Headers
+				response.url //=> String
+				console.log(response.text());
+
+			}, function(error) {
+				console.log(error);
+				console.log(error.message);
+
+				error.message //=> String
+			})
+		}
+		
+						// 取消跟进
+					function quxiaogenjin() {
+
+						//	var data = "{\"data\":{\"pageSize\":10,\"currPage\":1,\"type\":\"其他\",\"status\":1}}";
+							var data = "{\"data\":{\"id\":127,\"currPage\":1}}";
+
+							console.log(JSON.parse(data));
+							fetch("./taskCommon/cancel/followup", {
+								method : "POST",
+								body : data,
+								headers : {
+									"Content-Type" : "application/json"
+								},
+								credentials : "same-origin"
+							}).then(function(response) {
+								console.log(response);
+								response.status //=> number 100–599
+								response.statusText //=> String
+								response.headers //=> Headers
+								response.url //=> String
+								console.log(response.text());
+
+							}, function(error) {
+								console.log(error);
+								console.log(error.message);
+
+								error.message //=> String
+							})
+						}
+ 
+		
+	</script>
+
+	<h1>订单系统首页</h1>
+
+	<button value="" onclick="add()">新增订单</button>
+	<br />
+	<button value="" onclick="update()">修改订单</button>
+
+	<br />
+	<button value="" onclick="task()">查询订单</button>
+	<br />
+	<button value="" onclick="detail()">订单详情</button>
+
+
+	<br />
+
+	<br />
+
+	<div>
+		<button value="" onclick="addSugg()">添加意见建议</button>
+		<button value="" onclick="modifySugg()">修改意见建议</button>
+		<button value="" onclick="selectSugg()">查询意见建议</button>
+
+	</div>
+
+	<div>
+		<button value="" onclick="nextFlow()">下一个流程</button>
+		<button value="" onclick="backFlow()">上一个流程</button>
+
+	</div>
+
+	<br />
+	<button value="" onclick="gdfjList()">查看工单附件</button>
+	<button value="" onclick="findHandleTask()">查看工单日志</button>
+	<br />
+
+	<button value="" onclick="genjinflo()">跟进</button>
+	<button value="" onclick="quxiaogenjin()">取消跟进</button>
+
+</body>
+
+</html>

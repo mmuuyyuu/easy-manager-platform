@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!--这个是依赖的路径，记得替换成自己的-->
+    <classPathEntry
+            location="D:\java\repository\mysql\mysql-connector-java\8.0.22\mysql-connector-java-8.0.22.jar"/>
+
+    <!-- 一个数据库一个context -->
+    <context id="model-mysql-MyBatis" targetRuntime="MyBatis3">
+        <!--<plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin"></plugin>
+        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"></plugin>-->
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true"></property>
+        </commentGenerator>
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://10.0.40.10:3306/tyc?serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;"
+                        userId="user"
+                        password="admin">
+            <!--不生成withblog文件-->
+            <property name="nullCatalogMeansCurrent" value="true"/>
+        </jdbcConnection>
+
+        <!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和
+         NUMERIC 类型解析为java.math.BigDecimal -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- targetProject:生成PO类的位置 -->
+        <javaModelGenerator targetPackage="com.easy.gis.pojo.DO"
+                            targetProject="src/main/java">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="true"/>
+            <!-- 从数据库返回的值被清理前后的空格 -->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!--生成映射文件存放位置-->
+        <sqlMapGenerator targetPackage="tyc" targetProject="src/main/resources/mapper">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!--生成Dao类存放位置-->
+        <!-- targetProject:mapper映射文件生成的位置
+        如果maven工程只是单独的一个工程，targetProject="src/main/java"
+        若果maven工程是分模块的工程，targetProject="所属模块的名称"，例如：
+        targetProject="ecps-manager-mapper"，下同-->
+
+        <!--XMLMAPPER : 生成SQLMap XML文件和独立的Mapper接口-->
+        <!--ANNOTATEDMAPPER 生成Java Model 和基于注解的Mapper对象-->
+        <!--MIXEDMAPPER 生成基于注解的Java Model 和相应的Mapper对象-->
+        <javaClientGenerator type="xmlmapper" targetPackage="com.easy.gis.mapper"
+                             targetProject="src/main/java">
+            <!--和sqlMapGenerator标签下的enableSubPackages是一样的逻辑，就是在生成的java接口对象前的路径，是否根据表结构自动补上schema 作为包的后缀 -->
+            <property name="enableSubPackages" value="true"/>
+
+            <!--此属性可用于为所有生成的接口对象指定超级接口。 就是rootClass类似的操作，但是需要注意。接口的安全性，脚本不会进行判断和检查的 -->
+     -->
+        </javaClientGenerator>
+
+        <!-- 指定数据库表 -->
+        <!--
+
+
+
+         <table tableName="a_trademark" domainObjectName="Trademark" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+
+-->
+
+
+    </context>
+</generatorConfiguration>

@@ -1,0 +1,43 @@
+server:
+  port: 4444
+  servlet:
+    context-path: /emp
+# 配置freemarker
+spring:
+  output:
+    ansi:
+      enabled: always
+  ## 引入 短信配置
+  profiles:
+    include: datasource,thread,quartz,file
+  #  开启驼峰下划线自动转化
+  configuration:
+    map-underscore-to-camel-case: true
+config:
+  extPath: extPath
+#pagehelper
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+# swagger 配置
+swagger:
+  # 文档页标题
+  title: EMP管理接口文档
+  # 联系人信息
+  concat:
+    name: ADMIN
+    email: 123456
+  # 文档详细信息
+  description:  EMP管理接口文档
+  # 文档版本
+  version : 1.0.0
+  # 是否开启swagger
+  enabled: true
+#开启Swagger的Basic认证功能,默认是false
+knife4j:
+  basic:
+    enable: false
+    username: USER
+    password: 123456

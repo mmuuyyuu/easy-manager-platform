@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.easy.mapper.TrademarkMapper">
+    <cache eviction="LRU" flushInterval="100000" readOnly="true" size="1024"/>
+
+    <resultMap id="BaseResultMap" type="com.easy.pojo.DO.TrademarkDo">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="sid" property="sid" jdbcType="BIGINT"/>
+        <result column="eid" property="eid" jdbcType="BIGINT"/>
+        <result column="ename" property="ename" jdbcType="VARCHAR"/>
+        <result column="industry" property="industry" jdbcType="VARCHAR"/>
+        <result column="amount" property="amount" jdbcType="BIGINT"/>
+        <result column="year" property="year" jdbcType="VARCHAR"/>
+        <result column="utime" property="utime" jdbcType="TIMESTAMP"/>
+        <result column="crtime" property="crtime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, sid, eid, ename, industry,amount,`year`, utime, crtime
+  </sql>
+    <insert id="insert" parameterType="com.easy.pojo.DO.TrademarkDo">
+        insert into trsmodel.trs_trademark
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="sid != null">
+                sid,
+            </if>
+            <if test="eid != null">
+                eid,
+            </if>
+            <if test="ename != null">
+                ename,
+            </if>
+            <if test="industry != null">
+                industry,
+            </if>
+            <if test="amount != null">
+                amount,
+            </if>
+            <if test="year != null">
+                year,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="sid != null">
+                #{sid,jdbcType=BIGINT},
+            </if>
+            <if test="eid != null">
+                #{eid,jdbcType=BIGINT},
+            </if>
+            <if test="ename != null">
+                #{ename,jdbcType=VARCHAR},
+            </if>
+            <if test="industry != null">
+                #{industry,jdbcType=VARCHAR},
+            </if>
+            <if test="amount != null">
+                #{amount,jdbcType=VARCHAR},
+            </if>
+            <if test="year != null">
+                #{year,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="update" parameterType="com.easy.pojo.DO.TrademarkDo">
+        update trsmodel.trs_trademark
+        <set>
+            <if test="sid != null">
+                sid = #{sid,jdbcType=BIGINT},
+            </if>
+            <if test="eid != null">
+                eid = #{eid,jdbcType=BIGINT},
+            </if>
+            <if test="ename != null">
+                ename = #{ename,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+
+
+
+
+
+    <insert id="saves" parameterType="java.util.List">
+        insert into trsmodel.trs_trademark (
+        sid,
+        eid,
+        ename,
+        industry,
+        amount,
+        year)
+        values
+        <foreach item="tm" collection="list" separator="," index="index">
+            ( #{tm.sid,jdbcType=BIGINT},
+            #{tm.eid,jdbcType=BIGINT},
+            #{tm.ename,jdbcType=VARCHAR},
+            #{tm.industry,jdbcType=VARCHAR},
+            #{tm.amount,jdbcType=BIGINT},
+            #{tm.year,jdbcType=VARCHAR})
+        </foreach>
+    </insert>
+
+    <select id="get" parameterType="com.easy.pojo.DO.TrademarkDo" resultType="com.easy.pojo.DO.TrademarkDo"
+            useCache="false">
+        select * from trsmodel.trs_trademark where 1=1
+        <if test="id!=null and id !=''">
+            and id = #{id,jdbcType=BIGINT}
+        </if>
+        <if test="ename!=null ">
+            and ename = #{ename,jdbcType=VARCHAR}
+        </if>
+        <if test="year!=null ">
+            and `year` = #{year,jdbcType=VARCHAR}
+        </if>
+    </select>
+
+    <delete id="delete" parameterType="com.easy.pojo.DO.TrademarkDo">
+        delete from trsmodel.trs_trademark where id= #{id,jdbcType=BIGINT}
+    </delete>
+
+
+
+
+</mapper>

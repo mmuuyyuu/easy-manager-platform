@@ -1,0 +1,7 @@
+# 线程池默认配置
+thread-pool:
+  configMap:
+    corePoolSize: 8
+    maxPoolSize: 16
+    keepAliveTime: 300
+    queueCapacity: 1000
