@@ -14,12 +14,6 @@
     <dependencies>
         <dependency>
             <groupId>com.easy</groupId>
-            <artifactId>emp-processor</artifactId>
-            <version>1.0.0</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.easy</groupId>
             <artifactId>emp-common</artifactId>
             <version>1.0.0</version>
             <scope>compile</scope>
@@ -30,6 +24,21 @@
             <version>1.0.0</version>
             <scope>compile</scope>
         </dependency>
+
+        <!-- spring cloud alibaba sentinel -->
+         <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+             <version>2.2.1.RELEASE</version>
+         </dependency>
+
+
+        <!-- actuator，用于暴露监控端点 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
         <!-- 引入安全模块 -->
      <!--   <dependency>
             <groupId>com.easy</groupId>

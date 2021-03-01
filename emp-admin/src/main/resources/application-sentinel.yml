@@ -1,0 +1,24 @@
+# 暴露所有端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+spring:
+  application:
+    name: 后台管理
+  cloud:
+    sentinel:
+      eager: true
+      transport:
+        #指定控制台的地址
+        dashboard: localhost:8080
+        #指定和控制台通信的IP
+        #如不配置，会自动选择一个IP注册
+        client-ip: 127.0.0.1
+        #指定和控制台通信的端口，默认值8719
+        #如不设置，会自动从8719开始扫描，依次+1，直到找到未被占用的端口
+        port: 4444
+        #心跳发送周期，默认值null
+        #但在S impleHttpHeartbeatSender会用默认值10秒
+        heartbeat- interval-ms: 10000

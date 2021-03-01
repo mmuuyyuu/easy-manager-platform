@@ -9,7 +9,7 @@ spring:
       enabled: always
   ## 引入 短信配置
   profiles:
-    include: datasource,thread,quartz,file
+    include: datasource,thread,quartz,file,sentinel
   #  开启驼峰下划线自动转化
   configuration:
     map-underscore-to-camel-case: true

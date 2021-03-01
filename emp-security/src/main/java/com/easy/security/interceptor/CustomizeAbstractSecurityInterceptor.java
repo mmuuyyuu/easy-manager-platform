@@ -38,8 +38,8 @@ public class CustomizeAbstractSecurityInterceptor extends AbstractSecurityInterc
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        FilterInvocation fi = new FilterInvocation(servletRequest, servletResponse, filterChain);
-        invoke(fi);
+      //  FilterInvocation fi = new FilterInvocation(servletRequest, servletResponse, filterChain);
+      //  invoke(fi);
     }
 
     @Override
